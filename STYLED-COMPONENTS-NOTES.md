@@ -547,5 +547,138 @@ You've completed your first styled-components journey! Keep practicing and build
 
 ---
 
+---
+
+## 🚀 Dynamic Styling with Props
+
+### 💫 Props = Magic Variables Inside Styles!
+
+```javascript
+// 🎯 Extract props using destructuring
+const Box = styled.div`
+  width: ${({ size }) => size};
+  color: ${({ color }) => color};
+`;
+
+// Use it!
+<Box size="100px" color="red" />
+```
+
+**Think of it:** Props travel from JSX → into your CSS! 🎪
+
+---
+
+### 🎨 HSL Colors - The Creative Way!
+
+```javascript
+// 🌈 HSL = Hue, Saturation, Lightness
+background: hsl(349, 100%, 50%);  // 🍒 Cherry red!
+//          ^^^  ^^^^  ^^^
+//          |    |     └─ How bright? (0-100%)
+//          |    └─────── How vibrant? (0-100%)
+//          └──────────── Color angle (0-360°)
+```
+
+**Pro tip:** Change hue for rainbow effects!
+- 0° = Red 🔴
+- 120° = Green 🟢  
+- 240° = Blue 🔵
+- 343° = Cherry 🍒
+
+---
+
+### 🎭 Dynamic HSL with Props
+
+```javascript
+// 🎪 Make color change based on value!
+background-color: ${({ value }) => `hsl(${value}, 81%, 58%)`};
+```
+
+**Magic formula:** Higher value = Different color on the wheel! 🌈
+
+---
+
+### 📦 Spreading Props Like Butter
+
+```javascript
+// 🧈 ...rest = "give me everything else"
+export default function ProgressBar({ ...rest }) {
+  return <ProgressBarEl {...rest}></ProgressBarEl>;
+}
+```
+
+**What happens:**
+1. Collect ALL props in `...rest`
+2. Spread them into styled component with `{...rest}`
+3. Styled component can now access them! ✨
+
+---
+
+### 🎯 Conditional Values with OR
+
+```javascript
+// 🎲 If no Barwidth, use "0%" instead
+width: ${({ Barwidth }) => Barwidth || "0%"};
+//                                   ^^ fallback value
+```
+
+**Read as:** "Use Barwidth OR default to 0%" 🎪
+
+---
+
+### 🧩 Nesting Components = Composition
+
+```javascript
+// 🪆 Put one component inside another!
+<StyledSection>
+  <WeekdayTitle>{children}</WeekdayTitle>
+  <ProgressBarSection>
+    <ProgressBar Barwidth={Barwidth} />
+  </ProgressBarSection>
+</StyledSection>
+```
+
+**Like Russian dolls!** Each layer adds meaning 🎎
+
+---
+
+### 🎨 Quick Color Reference
+
+```javascript
+// 🍒 Cherry colors in HSL
+hsl(349, 100%, 50%)  // Bright cherry
+hsl(343, 81%, 58%)   // Cute cerise
+hsl(350, 100%, 42%)  // Classic cherry
+hsl(2, 100%, 50%)    // Candy apple
+```
+
+---
+
+## 💡 Pro Tips & Tricks
+
+### ⚡ Template Literal Inside Template Literal
+```javascript
+// 🎪 Nested backticks = Dynamic CSS!
+`hsl(${value}, 50%, 50%)`
+//   ^^ interpolation inside CSS function
+```
+
+### 🎯 Props Don't Need to Match HTML Attributes
+```javascript
+// ✨ Create your OWN prop names!
+<ProgressBar Barwidth="50%" customColor="red" />
+```
+
+### 🧠 Remember the Pattern
+```javascript
+${({ propName }) => propName}
+//^             ^    ^
+//|             |    └─ Use it
+//|             └────── Extract it  
+//└──────────────────── Interpolate it
+```
+
+---
+
 _Created: November 17, 2025_  
 _Course: Scrimba - Learn Styled Components in React_
