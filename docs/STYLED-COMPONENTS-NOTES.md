@@ -685,5 +685,159 @@ ${({ propName }) => propName}
 
 ---
 
+## 🎨 Visual Effects & Styling
+
+### ✨ Glow Effects
+
+**White Glow:**
+
+```javascript
+box-shadow:
+  0 0 10px rgba(255, 255, 255, 0.8),
+  0 0 20px rgba(255, 255, 255, 0.6),
+  0 0 30px rgba(255, 255, 255, 0.4);
+```
+
+**Complementary Color Glow (for mint bg):**
+
+```javascript
+// 🍑 Coral glow - perfect complement!
+box-shadow:
+  0 0 10px rgba(255, 107, 107, 0.6),
+  0 0 20px rgba(255, 107, 107, 0.4),
+  0 0 30px rgba(255, 107, 107, 0.2);
+```
+
+**Neon Effect:**
+
+```javascript
+box-shadow:
+  0 0 5px #color,
+  0 0 10px #color,
+  0 0 20px #color,
+  0 0 40px rgba(color, 0.5);
+```
+
+---
+
+### 📅 Working with Dates
+
+**Get Day Name:**
+
+```javascript
+// Single letter (M, T, W...)
+const date = new Date();
+const dayName = date.toLocaleDateString("en-US", { weekday: "narrow" });
+
+// Short name (Mon, Tue...)
+const dayName = date.toLocaleDateString("en-US", { weekday: "short" });
+
+// Full name (Monday, Tuesday...)
+const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
+
+// Manual array (fast)
+const days = ["S", "M", "T", "W", "T", "F", "S"];
+const dayName = days[date.getDay()];
+```
+
+**Slice for first letter:**
+
+```javascript
+const day = date.toLocaleDateString("en-US", { weekday: "long" }).slice(0, 1);
+```
+
+---
+
+### 🎯 Conditional Styling Based on Current Day
+
+```javascript
+const date = new Date().toLocaleDateString("en-us", { weekday: "long" });
+const day = date.slice(0, 1);
+
+// In component:
+{
+  day === children ? (
+    <CurrentDayProgressBar {...rest} width={width} />
+  ) : (
+    <ProgressBar {...rest} width={width} />
+  );
+}
+```
+
+---
+
+### 🌈 Switch Statement for Colors
+
+```javascript
+background-color: ${({color}) => {
+  switch (color) {
+    case "10": return "#FF6B6B";  // Soft Coral
+    case "9":  return "#FFDFBA";  // Peach
+    case "8":  return "#FF6B9D";  // Pink
+    default:   return "#FFB3BA";  // Pastel Pink
+  }
+}};
+```
+
+**Why switch over if/else?**
+
+- ✅ Cleaner for multiple conditions
+- ✅ Easy to add/remove cases
+- ✅ Better readability
+
+---
+
+### 🎨 Cute Color Palettes
+
+**Pastel Rainbow:**
+
+```
+#FFB3BA - Pink
+#FFDFBA - Peach
+#FFFFBA - Yellow
+#BAFFC9 - Mint
+#BAE1FF - Blue
+#E0BBE4 - Lavender
+```
+
+**Complementary Pairs:**
+
+```
+Mint (#C7F0DB) ↔ Coral (#FF6B6B)
+Lavender (#b19cd9) ↔ Gold (#FFD700)
+Sky Blue (#BAE1FF) ↔ Peach (#FFDFBA)
+```
+
+---
+
+## 🎓 Real Project Example
+
+```javascript
+// Current Day Highlight Component
+const CurrentDayProgressBar = styled(ProgressBar)`
+  background-color: #1b4332;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.6), 0 0 20px rgba(255, 107, 107, 0.4),
+    0 0 30px rgba(255, 107, 107, 0.2);
+`;
+
+// Usage with date matching
+const date = new Date().toLocaleDateString("en-us", { weekday: "long" });
+const day = date.slice(0, 1);
+
+export default function Section({ children, width, ...rest }) {
+  return (
+    <StyledSection>
+      {day === children ? (
+        <CurrentDayProgressBar {...rest} width={width} />
+      ) : (
+        <ProgressBar {...rest} width={width} />
+      )}
+    </StyledSection>
+  );
+}
+```
+
+---
+
 _Created: November 17, 2025_  
 _Course: Scrimba - Learn Styled Components in React_
