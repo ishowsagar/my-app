@@ -39,7 +39,7 @@ const StyledSection = styled.section`
   color: #ff6961;
 `;
 
-export default function Section({ children, width }) {
+export default function Section({ children, width,...rest }) {
   return (
     <StyledSection>
       {children.includes("S") ? (
@@ -48,7 +48,7 @@ export default function Section({ children, width }) {
         <WeekdayTitle>{children}</WeekdayTitle>
       )}
       <ProgressBarSection>
-        <ProgressBar value="338" width={width} />
+        <ProgressBar {...rest} value="338" width={width} />
       </ProgressBarSection>
     </StyledSection>
   );

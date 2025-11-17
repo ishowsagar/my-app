@@ -12,13 +12,13 @@ export default function App() {
   return (
     <>
       <Title>Progress Tracker🎯</Title>
-      <Section width="100%">M</Section>
-      <Section width="80%">T</Section>
-      <Section width="70%">W</Section>
-      <Section width="60%">T</Section>
-      <Section width="40%">F</Section>
-      <Section width="25%">S</Section>
-      <Section width="10%">S</Section>
+      <Section colorBar={'10'} width="100%">M</Section>
+      <Section colorBar={'9'} width="80%">T</Section>
+      <Section colorBar={'8'} width="70%">W</Section>
+      <Section colorBar={'7'} width="60%">T</Section>
+      <Section colorBar={'6'} width="40%">F</Section>
+      <Section colorBar={'5'} width="25%">S</Section>
+      <Section colorBar={'4'} width="10%">S</Section>
     </>
   );
 }
