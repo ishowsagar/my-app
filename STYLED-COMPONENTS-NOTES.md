@@ -561,7 +561,7 @@ const Box = styled.div`
 `;
 
 // Use it!
-<Box size="100px" color="red" />
+<Box size="100px" color="red" />;
 ```
 
 **Think of it:** Props travel from JSX → into your CSS! 🎪
@@ -580,8 +580,9 @@ background: hsl(349, 100%, 50%);  // 🍒 Cherry red!
 ```
 
 **Pro tip:** Change hue for rainbow effects!
+
 - 0° = Red 🔴
-- 120° = Green 🟢  
+- 120° = Green 🟢
 - 240° = Blue 🔵
 - 343° = Cherry 🍒
 
@@ -608,6 +609,7 @@ export default function ProgressBar({ ...rest }) {
 ```
 
 **What happens:**
+
 1. Collect ALL props in `...rest`
 2. Spread them into styled component with `{...rest}`
 3. Styled component can now access them! ✨
@@ -657,24 +659,27 @@ hsl(2, 100%, 50%)    // Candy apple
 ## 💡 Pro Tips & Tricks
 
 ### ⚡ Template Literal Inside Template Literal
+
 ```javascript
 // 🎪 Nested backticks = Dynamic CSS!
-`hsl(${value}, 50%, 50%)`
+`hsl(${value}, 50%, 50%)`;
 //   ^^ interpolation inside CSS function
 ```
 
 ### 🎯 Props Don't Need to Match HTML Attributes
+
 ```javascript
 // ✨ Create your OWN prop names!
 <ProgressBar Barwidth="50%" customColor="red" />
 ```
 
 ### 🧠 Remember the Pattern
+
 ```javascript
 ${({ propName }) => propName}
 //^             ^    ^
 //|             |    └─ Use it
-//|             └────── Extract it  
+//|             └────── Extract it
 //└──────────────────── Interpolate it
 ```
 
