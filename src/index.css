@@ -1,6 +1,9 @@
 body {
-  background-color: #ccddee;
+  height: 100vh;
+  width: 100vw;
+  background-color: #C7F0DB;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }

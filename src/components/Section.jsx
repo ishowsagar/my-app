@@ -23,8 +23,8 @@ const WeekendTitle = styled(WeekdayTitle)`
 
 // ! Seperate container for progres bar to have proportional progress % values
 const ProgressBarSection = styled.div`
-  width : 250px;
-`
+  width: 250px;
+`;
 
 const StyledSection = styled.section`
   background-color: #ffffff;
@@ -39,8 +39,7 @@ const StyledSection = styled.section`
   color: #ff6961;
 `;
 
-
-export default function Section({ children, Barwidth }) {
+export default function Section({ children, width }) {
   return (
     <StyledSection>
       {children.includes("S") ? (
@@ -49,7 +48,7 @@ export default function Section({ children, Barwidth }) {
         <WeekdayTitle>{children}</WeekdayTitle>
       )}
       <ProgressBarSection>
-        <ProgressBar value="338" Barwidth={Barwidth} />
+        <ProgressBar value="338" width={width} />
       </ProgressBarSection>
     </StyledSection>
   );

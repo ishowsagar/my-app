@@ -4,20 +4,21 @@ import Section from "./components/Section";
 const Title = styled.h1`
   text-align: center;
   font-family: sans-serif;
-  color: #b19cd9;
+  color: #2c3e50;
+  border-bottom: 2px solid #2c3e50;
 `;
 
 export default function App() {
   return (
     <>
-      <Title>Progress Tracker</Title>
-      <Section Barwidth="100%">M</Section>
-      <Section Barwidth="80%">T</Section>
-      <Section Barwidth="70%">W</Section>
-      <Section Barwidth="60%">T</Section>
-      <Section Barwidth="40%">F</Section>
-      <Section Barwidth="25%">S</Section>
-      <Section Barwidth="10%">S</Section>
+      <Title>Progress Tracker🎯</Title>
+      <Section width="100%">M</Section>
+      <Section width="80%">T</Section>
+      <Section width="70%">W</Section>
+      <Section width="60%">T</Section>
+      <Section width="40%">F</Section>
+      <Section width="25%">S</Section>
+      <Section width="10%">S</Section>
     </>
   );
 }
