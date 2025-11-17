@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import Section from "./components/Section";
 
-function App() {
+const Title = styled.h1`
+  text-align: center;
+  font-family: sans-serif;
+  color: #b19cd9;
+`;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Title>Progress Tracker</Title>
+      <Section Barwidth="100%">M</Section>
+      <Section Barwidth="80%">T</Section>
+      <Section Barwidth="70%">W</Section>
+      <Section Barwidth="60%">T</Section>
+      <Section Barwidth="40%">F</Section>
+      <Section Barwidth="25%">S</Section>
+      <Section Barwidth="10%">S</Section>
+    </>
   );
 }
 
-export default App;
+// TO DO:
+// make a ProgressBar component
+// pass through a progress value
+// make width dependant on progress value
+// make color dependant on progress value
