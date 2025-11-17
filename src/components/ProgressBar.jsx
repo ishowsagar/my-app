@@ -3,8 +3,8 @@ import styled from "styled-components";
 const ProgressBarEl = styled.div`
   width: ${({ width }) => width || "0%"};
   height: 100%;
-  background-color: ${({colorBar}) => {
-    switch (colorBar) {
+  background-color: ${({ color }) => {
+    switch (color) {
       case "10":
         return "#FF6B6B";
       case "9":
@@ -19,8 +19,9 @@ const ProgressBarEl = styled.div`
         return "#FF9CEE";
       case "4":
         return "#79A8FF";
-     default : return "red"
-    } 
+      default:
+        return "#FFB3BA";
+    }
   }};
 `;
 export default function ProgressBar({ ...rest }) {

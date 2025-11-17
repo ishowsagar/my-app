@@ -39,7 +39,18 @@ const StyledSection = styled.section`
   color: #ff6961;
 `;
 
-export default function Section({ children, width,...rest }) {
+const CurrentDayProgressBar = styled(ProgressBar)`
+  background-color: #1b4332;
+  box-shadow: 0px 0px 20px #1b4332, 0 0 20px #1b4332, 0 1px 10px #1b4332, 0 0 40px #1b4332;
+`;
+
+// fetching current live-date  and displaying it live-on-the page site of our React app
+const date = new Date().toLocaleDateString("en-us", { weekday: "long" });
+// * slicing it to match children for condtional rendering
+const day = date.slice(0, 1);
+// console.log(day);
+
+export default function Section({ children, width, ...rest }) {
   return (
     <StyledSection>
       {children.includes("S") ? (
@@ -48,7 +59,11 @@ export default function Section({ children, width,...rest }) {
         <WeekdayTitle>{children}</WeekdayTitle>
       )}
       <ProgressBarSection>
-        <ProgressBar {...rest} value="338" width={width} />
+        {day === children ? (
+          <CurrentDayProgressBar {...rest} value="338" width={width} />
+        ) : (
+          <ProgressBar {...rest} value="338" width={width} />
+        )}
       </ProgressBarSection>
     </StyledSection>
   );
